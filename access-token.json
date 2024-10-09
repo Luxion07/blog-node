@@ -1,0 +1,19 @@
+{
+    "user": {
+        "role": "user",
+        "isEmailVerified": false,
+        "email": "testluxion@gmail.com",
+        "name": "Alex",
+        "id": "670570b2ea04cf3482aff1e6"
+    },
+    "tokens": {
+        "access": {
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzA1NzBiMmVhMDRjZjM0ODJhZmYxZTYiLCJpYXQiOjE3Mjg0MDk3NzgsImV4cCI6MTcyODQxMTU3OCwidHlwZSI6ImFjY2VzcyJ9.qmUSHwhfzTHmQNlaZ1PsIEgpgCLkS-MccH5fWcQ94Yw",
+            "expires": "2024-10-08T18:19:38.656Z"
+        },
+        "refresh": {
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzA1NzBiMmVhMDRjZjM0ODJhZmYxZTYiLCJpYXQiOjE3Mjg0MDk3NzgsImV4cCI6MTczMTAwNTM3OCwidHlwZSI6InJlZnJlc2gifQ.jfSU_kXtbbq40KdOTxxEm78HTZp7-usRRk2SKZA-W8U",
+            "expires": "2024-11-07T18:49:38.661Z"
+        }
+    }
+}

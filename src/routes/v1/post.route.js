@@ -6,5 +6,6 @@ router.get('/', postController.getAllPosts)
 router.get('/:postId', postController.getPostById)
 router.post('/create', postController.createPost)
 router.put('/update/:postId', postController.updatePost)
+router.delete('/:postId', postController.deletePost)
 
 module.exports = router;

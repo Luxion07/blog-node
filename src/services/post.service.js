@@ -1,9 +1,13 @@
 const { Post } = require('../models');
 
 const queryPosts = async () => {
-    const posts = await Post.find({});
-    console.log(posts);  // Добавь вывод результата для проверки
-    return posts;
-  };
+  const posts = await Post.find({});
+  return posts;
+};
 
-module.exports = { queryPosts }
+const queryPostById = async (id) => {
+  const post = await Post.findOne({postId: id})
+  return post;
+}
+
+module.exports = { queryPosts, queryPostById };

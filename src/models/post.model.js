@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const AutoIncrement = require('mongoose-sequence')(mongoose);
+
 // const { toJSON, paginate } = require('./plugins');
 // const paginate = require('./plugins/paginate.plugin');
 
@@ -18,11 +20,15 @@ const postSchema = mongoose.Schema(
             type: Date,
             default: Date.now,
         },
+        postId: {
+            type: Number,
+        }
     },
     {
         timestamps: true,
     }
 )
+postSchema.plugin(AutoIncrement, { inc_field: 'postId' });
 
 // postSchema.plugin(toJSON);
 // postSchema.plugin(paginate);

@@ -16,4 +16,9 @@ const getPostById = catchAsync(async (req, res) => {
   res.send(post);
 });
 
-module.exports = {getAllPosts, getPostById}
+const createPost = catchAsync(async (req, res) => {
+  const post = await postService.createPost(req.body);
+  res.status(httpStatus.CREATED).send(post);
+});
+
+module.exports = {getAllPosts, getPostById, createPost}

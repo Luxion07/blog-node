@@ -10,7 +10,7 @@ const getAllPosts = catchAsync(async (req, res) => {
 
 const getPostById = catchAsync(async (req, res) => {
   const post = await postService.queryPostById(req.params.postId);
-  if(!post) {
+  if (!post) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Post not found');
   }
   res.send(post);
@@ -21,4 +21,9 @@ const createPost = catchAsync(async (req, res) => {
   res.status(httpStatus.CREATED).send(post);
 });
 
-module.exports = {getAllPosts, getPostById, createPost}
+const updatePost = catchAsync(async (req, res) => {
+  const post = await postService.updatePost(req.params.postId, req.body);
+  res.send(post);
+});
+
+module.exports = { getAllPosts, getPostById, createPost, updatePost }

@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document, Model } from 'mongoose';
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
-interface IPost extends Document {
+export interface IPost extends Document {
     title: string;
     content?: string;
     createdAt?: Date;

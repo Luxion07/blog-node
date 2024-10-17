@@ -1,11 +1,14 @@
-const mongoose = require('mongoose');
+import mongoose, { Schema, Document, Model } from 'mongoose';
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
-// const { toJSON, paginate } = require('./plugins');
-// const paginate = require('./plugins/paginate.plugin');
+interface IPost extends Document {
+    title: string;
+    content?: string;
+    createdAt?: Date;
+    postId: number;
+}
 
-
-const postSchema = mongoose.Schema(
+const postSchema: Schema<IPost> = new mongoose.Schema(
     {
         title: {
             type: String,
@@ -27,15 +30,9 @@ const postSchema = mongoose.Schema(
     {
         timestamps: true,
     }
-)
+);
+
 postSchema.plugin(AutoIncrement, { inc_field: 'postId' });
 
-// postSchema.plugin(toJSON);
-// postSchema.plugin(paginate);
-
-/**
- * @typedef Post
- */
-const Post = mongoose.model('Post',postSchema);
-
-module.exports = Post;
+const Post: Model<IPost> = mongoose.model<IPost>('Post', postSchema);
+export default Post;

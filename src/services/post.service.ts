@@ -1,23 +1,23 @@
-const { Post } = require('../models');
-const ApiError = require('../utils/ApiError');
-const httpStatus = require('http-status');
+import Post from '../models/post.model';
+import ApiError from '../utils/ApiError';
+import httpStatus from 'http-status';
 
 const queryPosts = async () => {
   const posts = await Post.find({});
   return posts;
 };
 
-const queryPostById = async (id) => {
+const queryPostById = async (id: number) => {
   const post = await Post.findOne({ postId: id })
   return post;
 };
 
-const createPost = async (postBody) => {
+const createPost = async (postBody: any) => {
   const post = await Post.create(postBody);
   return post;
 }
 
-const updatePost = async (postId, postBody) => {
+const updatePost = async (postId: number, postBody: any) => {
   const post = await Post.findOne({ postId: postId });
   if (!post) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Post not found');
@@ -27,7 +27,7 @@ const updatePost = async (postId, postBody) => {
   return post;
 }
 
-const deletePost = async (postId) => {
+const deletePost = async (postId: number) => {
   const post = await Post.findOne({ postId: postId });
   if (!post) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Post not found');
@@ -36,4 +36,4 @@ const deletePost = async (postId) => {
   return post;
 };
 
-module.exports = { queryPosts, queryPostById, createPost, updatePost, deletePost };
+export { queryPosts, queryPostById, createPost, updatePost, deletePost };

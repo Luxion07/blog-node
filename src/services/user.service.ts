@@ -45,7 +45,7 @@ const deleteUserById = async (userId: string): Promise<IUser | null> => {
   return user;
 };
 
-module.exports = {
+export = {
   createUser,
   queryUsers,
   getUserById,
